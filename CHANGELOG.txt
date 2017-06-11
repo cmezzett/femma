@@ -1,0 +1,36 @@
+0.4.1
+ . Corrected the logic of dynamic NameID assignment. Persistent-id is necessary for some
+   service provider, even if other sensitive attributes are provided.
+   Transient NameID format must be used when no sensitive attributes are provided and
+   you want to anonymize your users to the SP.
+   In short, FEMMA will use a default transient-id unless you specify a "persistent" rule
+   in the SP attributes list (if your users have to be identified consistently between
+   different sessions), or the SP attributes list contains one or more of the sensitive
+   attributes.
+
+0.4
+ . Moved all configuration settings in settings.cfg file, now mandatory
+ . Added a -c, --clean parameter to remove temporary file and directories
+ . Now FEMMA strips endpoints not supported by ADFS and ignores entities without HTTPS
+   AssertionConsumerService
+ . Added support for custom rules
+ . Added dynamic NameID type assignment. If one or more of the configured rules for an
+   SP are part of a list of sensitive attributes, FEMMA will switch to transient-id to
+   prevent user identity association to a persistent-id
+ . Some refactoring
+
+0.3
+ . Included adfs2fed.py, a simple script used to convert ADFS metadata to 
+   Shibboleth-friendly format
+ . Simplified femma.py and powershell script execution through update.bat batch file
+ . Added support for selective rule configuration in Relying Party rulesets
+ . Added support for HTTPS proxy connections
+   Thanks to:
+   http://www.hackorama.com/python/upload.shtml
+   http://code.activestate.com/recipes/456195/  -- Alessandro Budai
+
+0.2
+ . Corrected ruleset templates
+
+0.1
+ . Initial release

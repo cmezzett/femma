@@ -1,0 +1,10 @@
+v0.5:
+- add IdP support
+
+v0.6:
+- add support for xmlsec command in order to verify XML signature
+
+v0.7
+- find a way to update the metadata configuration without deleting every RP trust
+  before
+
